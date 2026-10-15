@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#c7a9e2" />
+  <title>Charmaine's 18th Debut — You Are Invited</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Lily+Script+One&family=Cormorant+Garamond:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       SECTION 1 — HERO (wisteria poster)
+  ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero__glow" id="heroGlow" aria-hidden="true"></div>
+    <div class="curtain curtain--left" aria-hidden="true"></div>
+    <div class="curtain curtain--right" aria-hidden="true"></div>
+    <div class="lavender-field" data-lavender aria-hidden="true"></div>
+    <div class="wisteria" data-wisteria data-corners="yes" aria-hidden="true"></div>
+    <div class="petals" id="petals" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <p class="hero__you-are">
+        <span class="hero__you">You are</span>
+        <span class="hero__invited">Invited</span>
+      </p>
+      <div class="hero__at-symbol" aria-hidden="true">@</div>
+      <h1 class="hero__name">
+        <span class="hero__charmaine">Charmaine's</span>
+        <span class="hero__debut">Debut</span>
+      </h1>
+    </div>
+
+    <a class="scroll-cue" href="#details" aria-label="Scroll to the details"><span></span></a>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 & 3 — SAVE THE DATE, LOCATION, DRESS CODE
+  ============================================================ -->
+  <section class="garden" id="details">
+    <div class="bloom-bg" data-blooms aria-hidden="true"></div>
+
+    <div class="garden__inner">
+
+      <div class="scroll-banner reveal">
+        <span class="scroll-banner__roll scroll-banner__roll--l" aria-hidden="true"></span>
+        <span class="scroll-banner__roll scroll-banner__roll--r" aria-hidden="true"></span>
+        <h3 class="scroll-banner__date">December 6, 2026</h3>
+        <p class="scroll-banner__label">Save the date</p>
+      </div>
+      <p class="day reveal">Sunday</p>
+
+      <div class="location-box reveal" id="location">
+        <h4 class="section-title"><span>Location</span></h4>
+        <div class="location__address-card">
+          HOLY GRACE COMPOUND, Bantayan Ext, Taguig, Metro Manila
+        </div>
+        <div class="qr-code-container">
+          <a class="qr-code-frame" href="https://www.google.com/maps/search/?api=1&amp;query=Holy+Grace+Compound+Bantayan+Ext+Taguig+Metro+Manila" target="_blank" rel="noopener" aria-label="Open the venue in Google Maps">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&amp;margin=0&amp;color=5b2a78&amp;bgcolor=ffffff&amp;data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DHoly%2BGrace%2BCompound%2BBantayan%2BExt%2BTaguig%2BMetro%2BManila" alt="QR code to the venue on Google Maps" width="168" height="168" />
+          </a>
+        </div>
+        <p class="qr-hint">Scan or tap for directions</p>
+      </div>
+
+      <div class="dress-code reveal" id="dress-code">
+        <h4 class="section-title"><span>Dress Code</span></h4>
+        <div class="dress-code__flowers">
+          <div class="dress-code__item">
+            <div class="lily" data-lily="purple" aria-hidden="true"></div>
+            <span class="dress-code__name dress-code__name--purple">Purple</span>
+          </div>
+          <div class="dress-code__item">
+            <div class="lily" data-lily="white" aria-hidden="true"></div>
+            <span class="dress-code__name dress-code__name--white">White</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — LINK TO TRADITIONS PAGE
+  ============================================================ -->
+  <section class="meadow traditions-gateway">
+    <div class="bloom-bg" data-blooms data-soft aria-hidden="true"></div>
+    <div class="traditions-gateway__inner reveal">
+      <h4 class="section-title"><span>The 18 Treasures</span></h4>
+      <p class="gateway-subtitle">Discover the special people sharing this milestone with Charmaine</p>
+      <a href="traditions.html" class="gateway-btn">View 18 Flowers, Candles &amp; More ✨</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — RSVP
+  ============================================================ -->
+  <section class="meadow rsvp" id="rsvp">
+    <div class="bloom-bg" data-blooms data-soft data-seed="9" aria-hidden="true"></div>
+    <div class="rsvp__inner reveal">
+      <h4 class="section-title"><span>RSVP</span></h4>
+      <p class="rsvp__subtitle">Please let us know if you can celebrate with us.</p>
+
+      <form class="rsvp__form" id="rsvpForm" novalidate>
+        <div class="rsvp__field">
+          <label class="rsvp__label" for="rsvp-name">Full Name</label>
+          <input class="rsvp__input" type="text" id="rsvp-name" name="name" placeholder="Your full name" required autocomplete="name" />
+        </div>
+
+        <div class="rsvp__field">
+          <label class="rsvp__label" for="rsvp-attendance">Will you attend?</label>
+          <select class="rsvp__input rsvp__select" id="rsvp-attendance" name="attendance" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="yes">Yes, I'll be there! 🎉</option>
+            <option value="no">Sorry, I can't make it</option>
+          </select>
+        </div>
+
+        <p class="rsvp__error" id="rsvpError" role="alert" hidden></p>
+
+        <button class="rsvp__btn" type="submit">Send RSVP ✨</button>
+      </form>
+
+      <div class="rsvp__success" id="rsvpSuccess" aria-live="polite" hidden>
+        <p>🎀 Thank you! We have received your RSVP.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>
+      <strong>Charmaine's 18th Debut</strong><br />
+      <span>December 6, 2026 · Taguig, Metro Manila</span>
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
