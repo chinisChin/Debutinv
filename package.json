@@ -1,0 +1,21 @@
+{
+  "name": "debutinv",
+  "version": "1.0.0",
+  "description": "Charmaine's 18th Debut Invitation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "node server.js"
+  },
+  "keywords": [
+    "debut",
+    "invitation",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "",
+  "license": "ISC"
+}
+
