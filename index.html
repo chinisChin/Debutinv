@@ -3,142 +3,834 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#c7a9e2" />
-  <title>Charmaine's 18th Debut — You Are Invited</title>
-  <script>document.documentElement.classList.add('js');</script>
+  <meta name="theme-color" content="#5b2a78" />
+  <title>Charmaine's 18th Debut — Romantic Garden Invitation</title>
+  <meta name="description" content="You are cordially invited to celebrate Charmaine's 18th Birthday Debut in an enchanted romantic garden on December 6, 2026." />
+
+  <!-- Fonts: Pinyon Script & Great Vibes for signature calligraphy, Cormorant Garamond for regal serif, Montserrat for modern elegance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Lily+Script+One&family=Cormorant+Garamond:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Parisienne&family=Pinyon+Script&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="romantic-garden">
+
+  <!-- Falling Lavender & White Petals Background Effect -->
+  <div class="petals-canvas" id="petals" aria-hidden="true"></div>
+
+  <!-- Ambient Garden Music Floating Controller -->
+  <div class="music-toggle-wrapper">
+    <button class="music-btn" id="musicBtn" type="button" aria-label="Toggle enchanted ambient music" title="Play ambient garden music">
+      <span class="music-icon" id="musicIcon">🎵</span>
+      <span class="music-label">Music</span>
+      <span class="music-waves" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+  </div>
 
   <!-- ============================================================
-       SECTION 1 — HERO (wisteria poster)
+       SECTION 0: INTERACTIVE ENVELOPE & WAX SEAL (Inspiration Top-Left)
   ============================================================ -->
-  <section class="hero" id="hero">
-    <div class="hero__glow" id="heroGlow" aria-hidden="true"></div>
-    <div class="curtain curtain--left" aria-hidden="true"></div>
-    <div class="curtain curtain--right" aria-hidden="true"></div>
-    <div class="lavender-field" data-lavender aria-hidden="true"></div>
-    <div class="wisteria" data-wisteria data-corners="yes" aria-hidden="true"></div>
-    <div class="petals" id="petals" aria-hidden="true"></div>
+  <section class="envelope-section" id="envelopeSection">
+    <div class="envelope-outer">
+      <div class="envelope-card" id="envelopeCard">
+        <!-- Delicate lace trim top -->
+        <div class="envelope-lace-trim" aria-hidden="true"></div>
 
-    <div class="hero__content">
-      <p class="hero__you-are">
-        <span class="hero__you">You are</span>
-        <span class="hero__invited">Invited</span>
-      </p>
-      <div class="hero__at-symbol" aria-hidden="true">@</div>
-      <h1 class="hero__name">
-        <span class="hero__charmaine">Charmaine's</span>
-        <span class="hero__debut">Debut</span>
-      </h1>
+        <div class="envelope-header">
+          <p class="envelope-tagline">A Letter Has Arrived From</p>
+          <h1 class="envelope-sender">Charmaine</h1>
+          <p class="envelope-milestone">18th Debut Invitation</p>
+        </div>
+
+        <!-- Flap with Chevron Lace & Golden Wax Seal -->
+        <div class="envelope-flap-area">
+          <div class="envelope-v-flap" aria-hidden="true">
+            <svg class="lace-chevron-svg" viewBox="0 0 400 120" preserveAspectRatio="none">
+              <path d="M0,0 L200,95 L400,0 L400,20 L200,115 L0,20 Z" fill="#fff" opacity="0.9" />
+              <path d="M0,5 L200,100 L400,5" stroke="#d5bdf0" stroke-width="2" stroke-dasharray="4,4" fill="none" />
+              <!-- Lace eyelets -->
+              <g fill="#f8f3fc" stroke="#cbb0ec" stroke-width="1">
+                <circle cx="50" cy="28" r="4" /><circle cx="100" cy="52" r="4" />
+                <circle cx="150" cy="76" r="4" /><circle cx="200" cy="100" r="5" />
+                <circle cx="250" cy="76" r="4" /><circle cx="300" cy="52" r="4" />
+                <circle cx="350" cy="28" r="4" />
+              </g>
+            </svg>
+          </div>
+
+          <!-- 3D Golden Wax Seal Stamp -->
+          <button class="wax-seal" id="waxSealBtn" type="button" aria-label="Open the debut invitation">
+            <div class="wax-seal__rim"></div>
+            <div class="wax-seal__body">
+              <span class="wax-seal__crown">♚</span>
+              <span class="wax-seal__monogram">C</span>
+              <span class="wax-seal__stars">✦ 18 ✦</span>
+            </div>
+            <span class="wax-seal__pulse" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="envelope-footer">
+          <button class="envelope-open-btn" id="openInviteBtn" type="button">
+            <span>Tap to View Invite</span>
+            <span class="btn-sparkle">✨</span>
+          </button>
+          <p class="envelope-hint">Click seal or button to unroll the invitation</p>
+        </div>
+      </div>
     </div>
-
-    <a class="scroll-cue" href="#details" aria-label="Scroll to the details"><span></span></a>
   </section>
 
   <!-- ============================================================
-       SECTION 2 & 3 — SAVE THE DATE, LOCATION, DRESS CODE
+       MAIN INVITATION WRAPPER (Romantic Storybook Scroll)
   ============================================================ -->
-  <section class="garden" id="details">
-    <div class="bloom-bg" data-blooms aria-hidden="true"></div>
+  <div class="invitation-container" id="invitationContent">
 
-    <div class="garden__inner">
+    <!-- Top Hanging Wisteria Garland -->
+    <div class="wisteria-canopy" data-wisteria data-corners="yes" aria-hidden="true"></div>
 
-      <div class="scroll-banner reveal">
-        <span class="scroll-banner__roll scroll-banner__roll--l" aria-hidden="true"></span>
-        <span class="scroll-banner__roll scroll-banner__roll--r" aria-hidden="true"></span>
-        <h3 class="scroll-banner__date">December 6, 2026</h3>
-        <p class="scroll-banner__label">Save the date</p>
-      </div>
-      <p class="day reveal">Sunday</p>
-
-      <div class="location-box reveal" id="location">
-        <h4 class="section-title"><span>Location</span></h4>
-        <div class="location__address-card">
-          HOLY GRACE COMPOUND, Bantayan Ext, Taguig, Metro Manila
+    <!-- ============================================================
+         SECTION 1: HERO & ROCOCO OVAL MIRROR PORTRAIT
+    ============================================================ -->
+    <header class="section hero-section reveal" id="hero">
+      <div class="hero-floral-frame">
+        <p class="hero-invitation-lead">You are cordially invited to</p>
+        <h2 class="hero-title">
+          <span class="hero-title__name">Charmaine's</span>
+          <span class="hero-title__number">Eighteen</span>
+        </h2>
+        <div class="hero-golden-divider" aria-hidden="true">
+          <span class="divider-line"></span>
+          <span class="divider-flourish">❦</span>
+          <span class="divider-line"></span>
         </div>
-        <div class="qr-code-container">
-          <a class="qr-code-frame" href="https://www.google.com/maps/search/?api=1&amp;query=Holy+Grace+Compound+Bantayan+Ext+Taguig+Metro+Manila" target="_blank" rel="noopener" aria-label="Open the venue in Google Maps">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&amp;margin=0&amp;color=5b2a78&amp;bgcolor=ffffff&amp;data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DHoly%2BGrace%2BCompound%2BBantayan%2BExt%2BTaguig%2BMetro%2BManila" alt="QR code to the venue on Google Maps" width="168" height="168" />
+      </div>
+
+      <!-- Ornate Baroque Gilded Oval Mirror Frame with Debutante Portrait -->
+      <div class="rococo-frame-wrapper">
+        <div class="rococo-mirror">
+          <div class="rococo-mirror__ornament top" aria-hidden="true">
+            <svg viewBox="0 0 120 40" class="crest-svg">
+              <path d="M60 4 C 40 4, 30 20, 10 22 C 28 26, 45 16, 60 28 C 75 16, 92 26, 110 22 C 90 20, 80 4, 60 4 Z" fill="url(#goldGrad)" />
+              <circle cx="60" cy="18" r="5" fill="#fef6df" stroke="#b88f3a" stroke-width="1.5" />
+            </svg>
+          </div>
+
+          <!-- Oval Portrait Window -->
+          <div class="rococo-mirror__oval">
+            <div class="rococo-mirror__glass">
+              <!-- Illustrated Enchanted Garden Debutante Portrait -->
+              <div class="portrait-art">
+                <div class="portrait-art__bg"></div>
+                <div class="portrait-art__wisteria-cluster"></div>
+                <div class="portrait-art__lady">
+                  <div class="portrait-gown"></div>
+                  <div class="portrait-silhouette"></div>
+                  <div class="portrait-flower-crown"></div>
+                </div>
+                <div class="portrait-shimmer"></div>
+              </div>
+            </div>
+            <div class="rococo-mirror__bevel"></div>
+          </div>
+
+          <!-- Bottom Garland Flourish -->
+          <div class="rococo-mirror__ornament bottom" aria-hidden="true">
+            <svg viewBox="0 0 140 45" class="crest-svg">
+              <path d="M70 38 C 50 38, 35 15, 10 18 C 30 12, 50 24, 70 12 C 90 24, 110 12, 130 18 C 105 15, 90 38, 70 38 Z" fill="url(#goldGrad)" />
+              <circle cx="70" cy="24" r="6" fill="#fef6df" stroke="#b88f3a" stroke-width="1.5" />
+            </svg>
+          </div>
+        </div>
+
+        <p class="hero-motto">“For an evening filled with grace, love, and starlight”</p>
+      </div>
+
+      <a class="scroll-cue" href="#saveTheDate" aria-label="Scroll down to details">
+        <span class="scroll-cue__arrow"></span>
+      </a>
+    </header>
+
+
+    <!-- ============================================================
+         SECTION 2: SAVE THE DATE & LIVE COUNTDOWN TIMER
+    ============================================================ -->
+    <section class="section save-date-section reveal" id="saveTheDate">
+      <div class="decorative-ribbon" aria-hidden="true"></div>
+
+      <div class="section-heading-group">
+        <span class="script-badge">Milestone Celebration</span>
+        <h3 class="section-script-title">Save the Date</h3>
+        <p class="section-script-sub">At 6:00 in the Evening</p>
+      </div>
+
+      <!-- Vintage Calendar Card: December 2026 -->
+      <div class="vintage-calendar-card">
+        <div class="calendar-header">
+          <span class="cal-month">December</span>
+          <span class="cal-year">2026</span>
+        </div>
+
+        <div class="calendar-grid">
+          <span class="cal-day-name">S</span>
+          <span class="cal-day-name">M</span>
+          <span class="cal-day-name">T</span>
+          <span class="cal-day-name">W</span>
+          <span class="cal-day-name">T</span>
+          <span class="cal-day-name">F</span>
+          <span class="cal-day-name">S</span>
+
+          <!-- Nov overlap -->
+          <span class="cal-date cal-empty"></span>
+          <span class="cal-date cal-empty"></span>
+          <!-- Dec starts on Tuesday 1st -->
+          <span class="cal-date">1</span>
+          <span class="cal-date">2</span>
+          <span class="cal-date">3</span>
+          <span class="cal-date">4</span>
+          <span class="cal-date">5</span>
+          <!-- Dec 6: Highlighted Debut Day! -->
+          <span class="cal-date cal-date--featured" title="Debut Day!">
+            <span class="featured-circle">6</span>
+            <span class="featured-tag">Debut</span>
+          </span>
+          <span class="cal-date">7</span>
+          <span class="cal-date">8</span>
+          <span class="cal-date">9</span>
+          <span class="cal-date">10</span>
+          <span class="cal-date">11</span>
+          <span class="cal-date">12</span>
+          <span class="cal-date">13</span>
+          <span class="cal-date">14</span>
+          <span class="cal-date">15</span>
+          <span class="cal-date">16</span>
+          <span class="cal-date">17</span>
+          <span class="cal-date">18</span>
+          <span class="cal-date">19</span>
+          <span class="cal-date">20</span>
+          <span class="cal-date">21</span>
+          <span class="cal-date">22</span>
+          <span class="cal-date">23</span>
+          <span class="cal-date">24</span>
+          <span class="cal-date">25</span>
+          <span class="cal-date">26</span>
+          <span class="cal-date">27</span>
+          <span class="cal-date">28</span>
+          <span class="cal-date">29</span>
+          <span class="cal-date">30</span>
+          <span class="cal-date">31</span>
+        </div>
+        <p class="calendar-caption">Sunday, December 6, 2026</p>
+      </div>
+
+      <!-- Real-Time Debut Countdown Timer -->
+      <div class="countdown-container">
+        <h4 class="countdown-title">Debut Countdown</h4>
+        <div class="countdown-clock" id="countdownClock" data-target="2026-12-06T18:00:00+08:00">
+          <div class="clock-unit">
+            <span class="clock-num" id="daysCount">000</span>
+            <span class="clock-label">Days</span>
+          </div>
+          <span class="clock-separator">:</span>
+          <div class="clock-unit">
+            <span class="clock-num" id="hoursCount">00</span>
+            <span class="clock-label">Hours</span>
+          </div>
+          <span class="clock-separator">:</span>
+          <div class="clock-unit">
+            <span class="clock-num" id="minutesCount">00</span>
+            <span class="clock-label">Minutes</span>
+          </div>
+          <span class="clock-separator">:</span>
+          <div class="clock-unit">
+            <span class="clock-num" id="secondsCount">00</span>
+            <span class="clock-label">Seconds</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 3: VENUE & BOTANICAL CONSERVATORY
+    ============================================================ -->
+    <section class="section location-section reveal" id="location">
+      <div class="section-heading-group">
+        <span class="script-badge">The Sanctuary</span>
+        <h3 class="section-script-title">Location</h3>
+        <p class="section-script-sub">Where our garden fairy tale unfolds</p>
+      </div>
+
+      <!-- Charming Greenhouse Conservatory Illustration & Address -->
+      <div class="venue-card">
+        <!-- SVG Botanical Conservatory Greenhouse Graphic -->
+        <div class="conservatory-illustration">
+          <svg viewBox="0 0 500 240" class="greenhouse-svg" aria-label="Garden glasshouse illustration">
+            <defs>
+              <linearGradient id="glassRoof" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#e9f5f0" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="#b8ded3" stop-opacity="0.65" />
+              </linearGradient>
+              <linearGradient id="goldArch" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#c49a45" />
+                <stop offset="50%" stop-color="#eed896" />
+                <stop offset="100%" stop-color="#c49a45" />
+              </linearGradient>
+            </defs>
+
+            <!-- Distant Garden Trees & Shrubbery -->
+            <ellipse cx="140" cy="180" rx="90" ry="60" fill="#95bda0" opacity="0.6" />
+            <ellipse cx="360" cy="180" rx="90" ry="60" fill="#88b394" opacity="0.6" />
+            <ellipse cx="250" cy="190" rx="130" ry="50" fill="#a4c9ad" opacity="0.7" />
+
+            <!-- Wisteria Vines Hanging over Conservatory -->
+            <g fill="#9b72cf" opacity="0.8">
+              <ellipse cx="160" cy="70" rx="8" ry="14" /><ellipse cx="165" cy="85" rx="6" ry="10" />
+              <ellipse cx="340" cy="70" rx="8" ry="14" /><ellipse cx="335" cy="85" rx="6" ry="10" />
+              <ellipse cx="200" cy="65" rx="7" ry="12" /><ellipse cx="300" cy="65" rx="7" ry="12" />
+            </g>
+
+            <!-- Glasshouse Conservatory Structure -->
+            <!-- Base platform -->
+            <rect x="130" y="180" width="240" height="15" rx="3" fill="#dfd6c8" stroke="#a49380" stroke-width="2" />
+            <!-- Main Glass Walls -->
+            <rect x="150" y="110" width="200" height="70" fill="url(#glassRoof)" stroke="#7a8b7e" stroke-width="2" />
+            <!-- Glasshouse Arched Dome -->
+            <path d="M150,110 Q250,35 350,110 Z" fill="url(#glassRoof)" stroke="#7a8b7e" stroke-width="2.5" />
+            <!-- Lantern Cupola on top -->
+            <rect x="235" y="30" width="30" height="18" fill="url(#glassRoof)" stroke="url(#goldArch)" stroke-width="2" />
+            <polygon points="230,30 250,14 270,30" fill="url(#goldArch)" />
+            <circle cx="250" cy="10" r="4" fill="#eed896" stroke="#b88f3a" />
+
+            <!-- Mullions & Window Grids -->
+            <line x1="200" y1="110" x2="200" y2="180" stroke="#7a8b7e" stroke-width="1.5" />
+            <line x1="250" y1="110" x2="250" y2="180" stroke="#7a8b7e" stroke-width="2" />
+            <line x1="300" y1="110" x2="300" y2="180" stroke="#7a8b7e" stroke-width="1.5" />
+            <!-- Conservatory Arch ribs -->
+            <path d="M200,110 Q250,60 250,48" stroke="#7a8b7e" stroke-width="1.5" fill="none" />
+            <path d="M300,110 Q250,60 250,48" stroke="#7a8b7e" stroke-width="1.5" fill="none" />
+            <path d="M175,110 Q250,50 325,110" stroke="#7a8b7e" stroke-width="1" stroke-dasharray="3,3" fill="none" />
+
+            <!-- Grand Glass Doors with Floral Arch -->
+            <rect x="230" y="130" width="40" height="50" fill="#e2f0ea" stroke="url(#goldArch)" stroke-width="2" />
+            <path d="M225,130 Q250,112 275,130" fill="none" stroke="url(#goldArch)" stroke-width="2.5" />
+            <!-- Interior floral silhouettes -->
+            <ellipse cx="250" cy="165" rx="14" ry="12" fill="#7fa882" opacity="0.7" />
+            <circle cx="245" cy="160" r="4" fill="#d9bcf2" />
+            <circle cx="255" cy="158" r="4" fill="#f8e5f0" />
+
+            <!-- Potted shrubs at entrance -->
+            <rect x="210" y="172" width="12" height="10" fill="#c49a6c" rx="1" />
+            <circle cx="216" cy="168" r="9" fill="#679169" />
+            <rect x="278" y="172" width="12" height="10" fill="#c49a6c" rx="1" />
+            <circle cx="284" cy="168" r="9" fill="#679169" />
+
+            <!-- Blooming Garden Bed Foreground -->
+            <path d="M70,215 Q150,195 250,210 Q350,195 430,215 L430,240 L70,240 Z" fill="#84aa86" />
+            <!-- Lilac & lavender flower dots -->
+            <g fill="#9b5fe0">
+              <circle cx="90" cy="212" r="3" /><circle cx="110" cy="208" r="4" />
+              <circle cx="140" cy="210" r="3.5" /><circle cx="170" cy="205" r="4" />
+              <circle cx="330" cy="205" r="4" /><circle cx="360" cy="208" r="3.5" />
+              <circle cx="390" cy="212" r="4" /><circle cx="410" cy="215" r="3" />
+            </g>
+            <g fill="#eedd95">
+              <circle cx="125" cy="214" r="3" /><circle cx="155" cy="212" r="3" />
+              <circle cx="345" cy="212" r="3" /><circle cx="375" cy="214" r="3" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="venue-details">
+          <h4 class="venue-name">Holy Grace Compound</h4>
+          <p class="venue-street">Bantayan Ext, Taguig, Metro Manila</p>
+          <p class="venue-note">Surrounded by lush blossoms and garden starlight</p>
+        </div>
+
+        <!-- Venue Actions: Google Maps Link + QR Code -->
+        <div class="venue-actions">
+          <a class="venue-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Holy+Grace+Compound+Bantayan+Ext+Taguig+Metro+Manila" target="_blank" rel="noopener">
+            <span class="btn-icon">📍</span>
+            <span>Tap to View Map</span>
+          </a>
+
+          <div class="venue-qr-wrapper">
+            <div class="venue-qr-frame">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&amp;margin=0&amp;color=5b2a78&amp;bgcolor=ffffff&amp;data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DHoly%2BGrace%2BCompound%2BBantayan%2BExt%2BTaguig%2BMetro%2BManila" alt="QR code to venue on Google Maps" width="140" height="140" loading="lazy" />
+            </div>
+            <p class="qr-label">Scan with phone camera</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 4: DRESS CODE & COLOR PALETTE
+    ============================================================ -->
+    <section class="section dress-section reveal" id="dressCode">
+      <div class="section-heading-group">
+        <span class="script-badge">Attire Inspiration</span>
+        <h3 class="section-script-title">Dress Code</h3>
+        <p class="section-script-sub">Garden Party Elegance</p>
+      </div>
+
+      <div class="dress-card">
+        <p class="dress-description">
+          We invite you to celebrate with us in formal or semi-formal garden elegance.
+          Guests are kindly encouraged to dress in harmony with our enchanted garden palette.
+        </p>
+
+        <!-- Color Swatches Bar -->
+        <div class="palette-swatches">
+          <div class="swatch-item">
+            <span class="swatch-circle" style="background: #5b2a78;"></span>
+            <span class="swatch-name">Royal Plum</span>
+          </div>
+          <div class="swatch-item">
+            <span class="swatch-circle" style="background: #9b51e0;"></span>
+            <span class="swatch-name">Wisteria</span>
+          </div>
+          <div class="swatch-item">
+            <span class="swatch-circle" style="background: #cbb0ec;"></span>
+            <span class="swatch-name">Lavender</span>
+          </div>
+          <div class="swatch-item">
+            <span class="swatch-circle" style="background: #88af85;"></span>
+            <span class="swatch-name">Sage Green</span>
+          </div>
+          <div class="swatch-item">
+            <span class="swatch-circle" style="background: #e6b8c8;"></span>
+            <span class="swatch-name">Dusty Rose</span>
+          </div>
+          <div class="swatch-item">
+            <span class="swatch-circle" style="background: #f8eed6;"></span>
+            <span class="swatch-name">Champagne</span>
+          </div>
+        </div>
+
+        <!-- Attire Accent Illustration (Evening Stilettos & Suit Accent) -->
+        <div class="attire-icons-row" aria-hidden="true">
+          <!-- Elegant Stiletto Heels SVG -->
+          <svg viewBox="0 0 160 80" class="attire-icon-svg">
+            <path d="M20,65 Q45,65 65,48 L95,15 Q105,10 115,20 L110,35 Q100,45 80,50 L50,65 Z" fill="none" stroke="#b88f3a" stroke-width="2" />
+            <line x1="108" y1="35" x2="114" y2="68" stroke="#b88f3a" stroke-width="2.5" />
+            <path d="M15,65 L50,65" stroke="#b88f3a" stroke-width="3" />
+            <!-- Bow on heel -->
+            <circle cx="70" cy="50" r="3.5" fill="#9b51e0" />
+            <path d="M64,48 Q70,44 76,48 Q70,52 64,48 Z" fill="#cbb0ec" />
+          </svg>
+        </div>
+
+        <div class="dress-note-box">
+          <span class="dress-note-icon">✨</span>
+          <p class="dress-note-text">
+            <strong>Gentle Note:</strong> To ensure the debutante shines brightly in her spotlight, we kindly ask our guests to avoid wearing solid white gowns.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 5: TIMELINE / ORDER OF DEBUT PROGRAM
+    ============================================================ -->
+    <section class="section timeline-section reveal" id="timeline">
+      <div class="section-heading-group">
+        <span class="script-badge">Evening Itinerary</span>
+        <h3 class="section-script-title">Timeline</h3>
+        <p class="section-script-sub">Order of the Debut Program</p>
+      </div>
+
+      <div class="timeline-lace-card">
+        <div class="timeline-list">
+
+          <div class="timeline-step">
+            <div class="step-time">5:00 PM</div>
+            <div class="step-marker"><span class="marker-dot"></span></div>
+            <div class="step-content">
+              <h4 class="step-title">Guest Arrival &amp; Registration</h4>
+              <p class="step-desc">Welcome cocktail, pictorial at the floral backdrop, and signature guestbook.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-time">6:00 PM</div>
+            <div class="step-marker"><span class="marker-dot"></span></div>
+            <div class="step-content">
+              <h4 class="step-title">Grand Entrance</h4>
+              <p class="step-desc">The formal introduction of Charmaine and her cotillion entourage.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-time">6:30 PM</div>
+            <div class="step-marker"><span class="marker-dot"></span></div>
+            <div class="step-content">
+              <h4 class="step-title">Welcome Prayer &amp; Toast</h4>
+              <p class="step-desc">Opening blessings, family welcome address, and the ceremonial toast.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-time">6:45 PM</div>
+            <div class="step-marker"><span class="marker-dot"></span></div>
+            <div class="step-content">
+              <h4 class="step-title">The 18 Traditions</h4>
+              <p class="step-desc">18 Roses, 18 Candles, 18 Bills &amp; Blessings, 18 Gifts, and 18 Shots.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-time">7:45 PM</div>
+            <div class="step-marker"><span class="marker-dot"></span></div>
+            <div class="step-content">
+              <h4 class="step-title">Dinner &amp; Intermission</h4>
+              <p class="step-desc">A lavish buffet feast accompanied by musical serenades and video tribute.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-time">9:00 PM</div>
+            <div class="step-marker"><span class="marker-dot"></span></div>
+            <div class="step-content">
+              <h4 class="step-title">Cake Cutting &amp; Celebration</h4>
+              <p class="step-desc">Debutante's thank-you speech, photo sessions, and open garden party dance.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 6: MEMORIES & POLAROID PHOTO GALLERY
+    ============================================================ -->
+    <section class="section gallery-section reveal" id="gallery">
+      <div class="section-heading-group">
+        <span class="script-badge">Pre-Debut Moments</span>
+        <h3 class="section-script-title">Memories</h3>
+        <p class="section-script-sub">Cherished snapshots of youth and elegance</p>
+      </div>
+
+      <!-- Tilted Vintage Polaroids with Floral Pins -->
+      <div class="polaroid-stage">
+        <div class="polaroid-card polaroid--left">
+          <div class="polaroid-tape" aria-hidden="true"></div>
+          <div class="polaroid-flower-pin" aria-hidden="true">🌸</div>
+          <div class="polaroid-img-frame">
+            <div class="polaroid-mock-img photo-1">
+              <span class="photo-overlay">Fairytale In Bloom</span>
+            </div>
+          </div>
+          <p class="polaroid-caption">Golden Hour Dreams</p>
+        </div>
+
+        <div class="polaroid-card polaroid--center">
+          <div class="polaroid-tape" aria-hidden="true"></div>
+          <div class="polaroid-flower-pin" aria-hidden="true">🌼</div>
+          <div class="polaroid-img-frame">
+            <div class="polaroid-mock-img photo-2">
+              <span class="photo-overlay">Eighteen &amp; Radiant</span>
+            </div>
+          </div>
+          <p class="polaroid-caption">A Whimsical Afternoon</p>
+        </div>
+
+        <div class="polaroid-card polaroid--right">
+          <div class="polaroid-tape" aria-hidden="true"></div>
+          <div class="polaroid-flower-pin" aria-hidden="true">💜</div>
+          <div class="polaroid-img-frame">
+            <div class="polaroid-mock-img photo-3">
+              <span class="photo-overlay">Garden Princess</span>
+            </div>
+          </div>
+          <p class="polaroid-caption">Counting Down</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 7: THE 18 TRADITIONS (Roses, Candles, Bills, Gifts, Shots)
+    ============================================================ -->
+    <section class="section traditions-section reveal" id="traditions">
+      <div class="section-heading-group">
+        <span class="script-badge">Beloved Entourage</span>
+        <h3 class="section-script-title">18 Traditions</h3>
+        <p class="section-script-sub">Honoring the special people guiding Charmaine's journey</p>
+      </div>
+
+      <!-- Interactive Tab Selector for Traditions -->
+      <div class="traditions-tabs-container">
+        <div class="traditions-tabs" role="tablist">
+          <button class="tab-btn active" role="tab" aria-selected="true" data-tab="tab-roses">
+            <span class="tab-emoji">🌹</span>
+            <span class="tab-label">18 Roses</span>
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-candles">
+            <span class="tab-emoji">🕯️</span>
+            <span class="tab-label">18 Candles</span>
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-bills">
+            <span class="tab-emoji">💵</span>
+            <span class="tab-label">18 Bills</span>
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-gifts">
+            <span class="tab-emoji">🎁</span>
+            <span class="tab-label">18 Gifts</span>
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-shots">
+            <span class="tab-emoji">🥂</span>
+            <span class="tab-label">18 Shots</span>
+          </button>
+        </div>
+
+        <!-- Lace Card Container displaying active list -->
+        <div class="traditions-lace-panel">
+          <div class="lace-panel-corner tl" aria-hidden="true"></div>
+          <div class="lace-panel-corner tr" aria-hidden="true"></div>
+          <div class="lace-panel-corner bl" aria-hidden="true"></div>
+          <div class="lace-panel-corner br" aria-hidden="true"></div>
+
+          <!-- TAB 1: 18 Roses (Flowers) -->
+          <div class="tab-content-panel active" id="tab-roses" role="tabpanel">
+            <h4 class="tradition-panel-heading">18 Roses &amp; Dances 🌹</h4>
+            <p class="tradition-panel-desc">Gentlemen presenting a flower and sharing a dance of honor</p>
+            <ol class="entourage-list">
+              <li><span>Ninong Ben</span></li>
+              <li><span>Ninong Felix</span></li>
+              <li><span>Tito Nick</span></li>
+              <li><span>Tito Otchoy</span></li>
+              <li><span>Sir Dave</span></li>
+              <li><span>Daimler</span></li>
+              <li><span>Sam</span></li>
+              <li><span>Dennielle</span></li>
+              <li><span>Jhustine</span></li>
+              <li><span>Seth</span></li>
+              <li><span>Zaijhan</span></li>
+              <li><span>Kuya Bryan</span></li>
+              <li><span>Tita Irene</span></li>
+              <li><span>Vincent</span></li>
+              <li><span>Papa</span></li>
+              <li><span>Kuya Leonard</span></li>
+              <li><span>Ninong Tuto</span></li>
+              <li><span class="special-escort">Family Escort</span></li>
+            </ol>
+            <div class="tradition-subpage-link">
+              <a href="flowers.html" class="vintage-text-link">View Full 18 Flowers Page →</a>
+            </div>
+          </div>
+
+          <!-- TAB 2: 18 Candles -->
+          <div class="tab-content-panel" id="tab-candles" role="tabpanel" hidden>
+            <h4 class="tradition-panel-heading">18 Candles &amp; Wishes 🕯️</h4>
+            <p class="tradition-panel-desc">Ladies imparting guiding light, advice, and heartfelt wishes</p>
+            <ol class="entourage-list">
+              <li><span>Ayumi</span></li>
+              <li><span>Dhean</span></li>
+              <li><span>Rhian</span></li>
+              <li><span>Kristeen</span></li>
+              <li><span>Naomi</span></li>
+              <li><span>Faith</span></li>
+              <li><span>Kyielle</span></li>
+              <li><span>Angela</span></li>
+              <li><span>Kathleen</span></li>
+              <li><span>Bianca</span></li>
+              <li><span>Io</span></li>
+              <li><span>Marienne</span></li>
+              <li><span>Crescent</span></li>
+              <li><span>Ate Jeanette</span></li>
+              <li><span>Vivienne</span></li>
+              <li><span>Albert</span></li>
+              <li><span>Marian</span></li>
+              <li><span>Yasmien</span></li>
+            </ol>
+            <div class="tradition-subpage-link">
+              <a href="candles.html" class="vintage-text-link">View Full 18 Candles Page →</a>
+            </div>
+          </div>
+
+          <!-- TAB 3: 18 Bills -->
+          <div class="tab-content-panel" id="tab-bills" role="tabpanel" hidden>
+            <h4 class="tradition-panel-heading">18 Bills &amp; Blessings 💵</h4>
+            <p class="tradition-panel-desc">Special loved ones offering prosperity, luck, and guidance</p>
+            <ol class="entourage-list">
+              <li><span>Ninong Ben</span></li>
+              <li><span>Ninong Felix</span></li>
+              <li><span>Tita Belen</span></li>
+              <li><span>Tita Lorena</span></li>
+              <li><span>Mommy Merly</span></li>
+              <li><span>Ate Auley</span></li>
+              <li><span>Lola Maria</span></li>
+              <li><span>Lola Vicky</span></li>
+              <li><span>Tita Pia</span></li>
+              <li><span>Tita Maryann</span></li>
+              <li><span>Tita Melen</span></li>
+              <li><span>Tita Lanie</span></li>
+              <li><span>Tita Rachel</span></li>
+              <li><span>Tita Heidi</span></li>
+              <li><span>Tita Loida</span></li>
+              <li><span>Tita Marlyn</span></li>
+              <li><span>Ninong Tuto</span></li>
+              <li><span>Ninong Edwin</span></li>
+            </ol>
+            <div class="tradition-subpage-link">
+              <a href="bills.html" class="vintage-text-link">View Full 18 Bills Page →</a>
+            </div>
+          </div>
+
+          <!-- TAB 4: 18 Gifts -->
+          <div class="tab-content-panel" id="tab-gifts" role="tabpanel" hidden>
+            <h4 class="tradition-panel-heading">18 Gifts &amp; Treasures 🎁</h4>
+            <p class="tradition-panel-desc">Tokens of love, keepsake treasures, and memories to cherish</p>
+            <ol class="entourage-list">
+              <li><span>Ninang Joy</span></li>
+              <li><span>Ate Grace</span></li>
+              <li><span>Kuya Mark</span></li>
+              <li><span>Tita Rose</span></li>
+              <li><span>Tito Joel</span></li>
+              <li><span>Ate Katrina</span></li>
+              <li><span>Kuya Ryan</span></li>
+              <li><span>Ninang Susan</span></li>
+              <li><span>Tita Carmen</span></li>
+              <li><span>Ninong Carlo</span></li>
+              <li><span>Ate Nicole</span></li>
+              <li><span>Kuya Dennis</span></li>
+              <li><span>Tita Liza</span></li>
+              <li><span>Ninang Beth</span></li>
+              <li><span>Kuya Christian</span></li>
+              <li><span>Ate Samantha</span></li>
+              <li><span>Tita Evelyn</span></li>
+              <li><span>Family Keepers</span></li>
+            </ol>
+            <div class="tradition-subpage-link">
+              <a href="gifts.html" class="vintage-text-link">View Full 18 Gifts Page →</a>
+            </div>
+          </div>
+
+          <!-- TAB 5: 18 Shots -->
+          <div class="tab-content-panel" id="tab-shots" role="tabpanel" hidden>
+            <h4 class="tradition-panel-heading">18 Shots &amp; Cheers 🥂</h4>
+            <p class="tradition-panel-desc">Raising glasses to youth, laughter, sisterhood, and good times</p>
+            <ol class="entourage-list">
+              <li><span>Ching Mae</span></li>
+              <li><span>Gia</span></li>
+              <li><span>Bea</span></li>
+              <li><span>Chloe</span></li>
+              <li><span>Trisha</span></li>
+              <li><span>Andrea</span></li>
+              <li><span>Patricia</span></li>
+              <li><span>Hannah</span></li>
+              <li><span>Cheska</span></li>
+              <li><span>Jasmine</span></li>
+              <li><span>Alyssa</span></li>
+              <li><span>Dani</span></li>
+              <li><span>Nicole</span></li>
+              <li><span>Kim</span></li>
+              <li><span>Camille</span></li>
+              <li><span>Justine</span></li>
+              <li><span>Regine</span></li>
+              <li><span>Squad Cheers</span></li>
+            </ol>
+            <div class="tradition-subpage-link">
+              <a href="shots.html" class="vintage-text-link">View Full 18 Shots Page →</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Link to the dedicated Hub -->
+        <div class="traditions-hub-callout">
+          <a href="traditions.html" class="ornate-gold-btn">
+            <span>Explore The 18 Treasures Hub ✨</span>
           </a>
         </div>
-        <p class="qr-hint">Scan or tap for directions</p>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 8: RSVP CARD
+    ============================================================ -->
+    <section class="section rsvp-section reveal" id="rsvp">
+      <div class="section-heading-group">
+        <span class="script-badge">Kindly Respond</span>
+        <h3 class="section-script-title">RSVP</h3>
+        <p class="section-script-sub">Please confirm your presence in our enchanted garden</p>
       </div>
 
-      <div class="dress-code reveal" id="dress-code">
-        <h4 class="section-title"><span>Dress Code</span></h4>
-        <div class="dress-code__flowers">
-          <div class="dress-code__item">
-            <div class="lily" data-lily="purple" aria-hidden="true"></div>
-            <span class="dress-code__name dress-code__name--purple">Purple</span>
+      <div class="rsvp-envelope-card">
+        <form class="rsvp-form" id="rsvpForm" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="rsvp-name">Your Full Name</label>
+            <div class="input-wrap">
+              <input class="form-input" type="text" id="rsvp-name" name="name" placeholder="e.g. Maria Santos" required autocomplete="name" />
+              <span class="input-icon">👤</span>
+            </div>
           </div>
-          <div class="dress-code__item">
-            <div class="lily" data-lily="white" aria-hidden="true"></div>
-            <span class="dress-code__name dress-code__name--white">White</span>
+
+          <div class="form-group">
+            <label class="form-label" for="rsvp-attendance">Will you celebrate with us?</label>
+            <div class="input-wrap">
+              <select class="form-input form-select" id="rsvp-attendance" name="attendance" required>
+                <option value="" disabled selected>Please select an option</option>
+                <option value="yes">Joyfully Accepts (I'll be there! 🎉)</option>
+                <option value="no">Regretfully Declines (Warm wishes from afar)</option>
+              </select>
+              <span class="input-icon">💌</span>
+            </div>
           </div>
+
+          <p class="rsvp-error" id="rsvpError" role="alert" hidden></p>
+
+          <button class="rsvp-submit-btn" type="submit">
+            <span>Confirm RSVP</span>
+            <span class="btn-stars">✨</span>
+          </button>
+        </form>
+
+        <div class="rsvp-success-card" id="rsvpSuccess" aria-live="polite" hidden>
+          <span class="success-icon">🎀</span>
+          <h4 class="success-title">Thank You!</h4>
+          <p class="success-text">Your response has been lovingly recorded. We look forward to celebrating Charmaine's 18th with you!</p>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
 
-  <!-- ============================================================
-       SECTION 4 — LINK TO TRADITIONS PAGE
-  ============================================================ -->
-  <section class="meadow traditions-gateway">
-    <div class="bloom-bg" data-blooms data-soft aria-hidden="true"></div>
-    <div class="traditions-gateway__inner reveal">
-      <h4 class="section-title"><span>The 18 Treasures</span></h4>
-      <p class="gateway-subtitle">Discover the special people sharing this milestone with Charmaine</p>
-      <a href="traditions.html" class="gateway-btn">View 18 Flowers, Candles &amp; More ✨</a>
-    </div>
-  </section>
+    <!-- ============================================================
+         SITE FOOTER
+    ============================================================ -->
+    <footer class="romantic-footer">
+      <div class="footer-crest" aria-hidden="true">❦ ❧</div>
+      <h4 class="footer-title">Charmaine's 18th Debut</h4>
+      <p class="footer-subtitle">December 6, 2026 · Taguig, Metro Manila</p>
+      <p class="footer-wish">Created with love for Charmaine's milestone birthday</p>
+    </footer>
 
-  <!-- ============================================================
-       SECTION 5 — RSVP
-  ============================================================ -->
-  <section class="meadow rsvp" id="rsvp">
-    <div class="bloom-bg" data-blooms data-soft data-seed="9" aria-hidden="true"></div>
-    <div class="rsvp__inner reveal">
-      <h4 class="section-title"><span>RSVP</span></h4>
-      <p class="rsvp__subtitle">Please let us know if you can celebrate with us.</p>
+  </div><!-- /.invitation-container -->
 
-      <form class="rsvp__form" id="rsvpForm" novalidate>
-        <div class="rsvp__field">
-          <label class="rsvp__label" for="rsvp-name">Full Name</label>
-          <input class="rsvp__input" type="text" id="rsvp-name" name="name" placeholder="Your full name" required autocomplete="name" />
-        </div>
-
-        <div class="rsvp__field">
-          <label class="rsvp__label" for="rsvp-attendance">Will you attend?</label>
-          <select class="rsvp__input rsvp__select" id="rsvp-attendance" name="attendance" required>
-            <option value="" disabled selected>Select an option</option>
-            <option value="yes">Yes, I'll be there! 🎉</option>
-            <option value="no">Sorry, I can't make it</option>
-          </select>
-        </div>
-
-        <p class="rsvp__error" id="rsvpError" role="alert" hidden></p>
-
-        <button class="rsvp__btn" type="submit">Send RSVP ✨</button>
-      </form>
-
-      <div class="rsvp__success" id="rsvpSuccess" aria-live="polite" hidden>
-        <p>🎀 Thank you! We have received your RSVP.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <p>
-      <strong>Charmaine's 18th Debut</strong><br />
-      <span>December 6, 2026 · Taguig, Metro Manila</span>
-    </p>
-  </footer>
+  <!-- Shared SVG Gradients Definition -->
+  <svg width="0" height="0" class="svg-defs-hidden" aria-hidden="true">
+    <defs>
+      <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#bf8f3b" />
+        <stop offset="30%" stop-color="#eed896" />
+        <stop offset="70%" stop-color="#c49a45" />
+        <stop offset="100%" stop-color="#8a6119" />
+      </linearGradient>
+      <linearGradient id="purpleGold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#5b2a78" />
+        <stop offset="50%" stop-color="#9b51e0" />
+        <stop offset="100%" stop-color="#b88f3a" />
+      </linearGradient>
+    </defs>
+  </svg>
 
   <script src="app.js"></script>
 </body>
