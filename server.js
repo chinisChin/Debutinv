@@ -15,6 +15,10 @@ const MIME_TYPES = {
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
   '.webp': 'image/webp',
+  '.mp3': 'audio/mpeg',
+  '.m4a': 'audio/mp4',
+  '.wav': 'audio/wav',
+  '.ogg': 'audio/ogg',
   '.woff': 'font/woff',
   '.woff2': 'font/woff2',
   '.ttf': 'font/ttf'
@@ -76,14 +80,33 @@ function createServer(port) {
 
       const ext = path.extname(filePath).toLowerCase();
       const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+      const range = req.headers.range;
 
-      res.writeHead(200, {
-        'Content-Type': contentType,
-        'Cache-Control': 'no-cache, no-store, must-revalidate'
-      });
+      // Handle HTTP Range requests for audio/video seeking
+      if (range) {
+        const parts = range.replace(/bytes=/, '').split('-');
+        const start = parseInt(parts[0], 10);
+        const end = parts[1] ? parseInt(parts[1], 10) : stats.size - 1;
+        const chunksize = (end - start) + 1;
+        const stream = fs.createReadStream(filePath, { start, end });
 
-      const stream = fs.createReadStream(filePath);
-      stream.pipe(res);
+        res.writeHead(206, {
+          'Content-Range': `bytes ${start}-${end}/${stats.size}`,
+          'Accept-Ranges': 'bytes',
+          'Content-Length': chunksize,
+          'Content-Type': contentType
+        });
+        stream.pipe(res);
+      } else {
+        res.writeHead(200, {
+          'Content-Length': stats.size,
+          'Content-Type': contentType,
+          'Accept-Ranges': 'bytes',
+          'Cache-Control': 'no-cache, no-store, must-revalidate'
+        });
+        const stream = fs.createReadStream(filePath);
+        stream.pipe(res);
+      }
     });
   });
 
@@ -109,4 +132,3 @@ function createServer(port) {
 }
 
 createServer(INITIAL_PORT);
-

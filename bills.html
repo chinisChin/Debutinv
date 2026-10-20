@@ -14,6 +14,9 @@
 <body class="traditions-page">
 
   <div class="bloom-bg bloom-bg--fixed" data-blooms data-seed="7" aria-hidden="true"></div>
+  <div class="gold-wave-bg" aria-hidden="true">
+    <canvas class="gold-wave-canvas" id="goldWaveCanvas"></canvas>
+  </div>
 
   <header class="traditions-header">
     <div class="wisteria" data-wisteria data-seed="13" aria-hidden="true"></div>
@@ -61,6 +64,10 @@
     </p>
   </footer>
 
+    <!-- GSAP Core & ScrollTrigger (CDN with offline local fallback) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>window.gsap || document.write('<script src="gsap.min.js"><\/script><script src="ScrollTrigger.min.js"><\/script>');</script>
   <script src="app.js"></script>
 </body>
 </html>

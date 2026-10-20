@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="invitation-locked">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,14 +14,23 @@
 
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="romantic-garden">
+<body class="romantic-garden invitation-locked">
 
   <!-- Falling Lavender & White Petals Background Effect -->
   <div class="petals-canvas" id="petals" aria-hidden="true"></div>
 
+  <!-- Golden garden: flowing gold waves that bloom into flowers -->
+  <div class="gold-wave-bg" aria-hidden="true">
+    <canvas class="gold-wave-canvas" id="goldWaveCanvas"></canvas>
+  </div>
+
   <!-- Ambient Garden Music Floating Controller -->
   <div class="music-toggle-wrapper">
-    <button class="music-btn" id="musicBtn" type="button" aria-label="Toggle enchanted ambient music" title="Play ambient garden music">
+    <audio id="bgMusic" preload="auto" loop>
+      <source src="sabihin-mo-na.mp3" type="audio/mpeg">
+      <source src="Yeng Constantino - Sabihin Mo Na (Lyrics).mp3" type="audio/mpeg">
+    </audio>
+    <button class="music-btn" id="musicBtn" type="button" aria-label="Toggle background music" title="Play: Yeng Constantino - Sabihin Mo Na">
       <span class="music-icon" id="musicIcon">🎵</span>
       <span class="music-label">Music</span>
       <span class="music-waves" aria-hidden="true">
@@ -832,6 +841,10 @@
     </defs>
   </svg>
 
+    <!-- GSAP Core & ScrollTrigger (CDN with offline local fallback) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>window.gsap || document.write('<script src="gsap.min.js"><\/script><script src="ScrollTrigger.min.js"><\/script>');</script>
   <script src="app.js"></script>
 </body>
 </html>
