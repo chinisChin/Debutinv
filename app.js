@@ -1,5 +1,11 @@
 'use strict';
 
+// If run directly in Node.js (e.g. via `node app.js` or Code Runner in VS Code),
+// start the local web server instead of failing with "document is not defined".
+if (typeof window === 'undefined' && typeof document === 'undefined') {
+  require('./server.js');
+} else {
+
 /* ================================================================
    SMALL HELPERS
 ================================================================ */
@@ -367,3 +373,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initRsvpForm();
 });
+}
