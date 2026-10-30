@@ -13,6 +13,8 @@
     { "src": "/gsap.min.js", "dest": "/gsap.min.js" },
     { "src": "/ScrollTrigger.min.js", "dest": "/ScrollTrigger.min.js" },
     { "src": "/sabihin-mo-na.mp3", "dest": "/sabihin-mo-na.mp3" },
+    { "src": "/purple.mp3", "dest": "/purple.mp3" },
+    { "src": "/venue-qr.png", "dest": "/venue-qr.png" },
     { "src": "/shots.html", "dest": "/shots.html" },
     { "src": "/candles.html", "dest": "/candles.html" },
     { "src": "/traditions.html", "dest": "/traditions.html" },
