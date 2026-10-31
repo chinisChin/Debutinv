@@ -73,9 +73,14 @@ if (typeof window === 'undefined' && typeof document === 'undefined') {
      2. INTERACTIVE WAX SEAL & ENVELOPE OPENING (POWERED BY GSAP)
   ================================================================ */
   function initEnvelope() {
+    const envelopeSection = document.getElementById('envelopeSection');
+    // If this page does not have an envelope (e.g. traditions.html, flowers.html, etc.), do not block scrolling
+    if (!envelopeSection) {
+      return;
+    }
+
     const waxSeal = document.getElementById('waxSealBtn');
     const openBtn = document.getElementById('openInviteBtn');
-    const envelopeSection = document.getElementById('envelopeSection');
     const card = document.getElementById('envelopeCard');
     const htmlEl = document.documentElement;
     const bodyEl = document.body;
@@ -187,7 +192,7 @@ if (typeof window === 'undefined' && typeof document === 'undefined') {
       htmlEl.classList.remove('invitation-locked');
       bodyEl.classList.remove('invitation-locked');
 
-      // Automatically start "Sabihin Mo Na" background music
+      // Automatically start background music
       try {
         window.dispatchEvent(new CustomEvent('debut:open-invite'));
       } catch (e) {}
@@ -400,7 +405,7 @@ if (typeof window === 'undefined' && typeof document === 'undefined') {
   }
 
   /* ================================================================
-     6. BACKGROUND MUSIC CONTROLLER (Yeng Constantino - Sabihin Mo Na)
+     6. BACKGROUND MUSIC CONTROLLER (Olivia Rodrigo - purple)
   ================================================================ */
   function initAmbientMusic() {
     const btn = document.getElementById('musicBtn');
@@ -408,7 +413,7 @@ if (typeof window === 'undefined' && typeof document === 'undefined') {
     let audio = document.getElementById('bgMusic');
 
     if (!audio) {
-      audio = new Audio('sabihin-mo-na.mp3');
+      audio = new Audio('purple.mp3');
       audio.id = 'bgMusic';
       audio.loop = true;
       document.body.appendChild(audio);
@@ -424,12 +429,12 @@ if (typeof window === 'undefined' && typeof document === 'undefined') {
       if (btn) {
         if (playing) {
           btn.classList.add('playing');
-          btn.setAttribute('title', 'Pause: Yeng Constantino - Sabihin Mo Na');
+          btn.setAttribute('title', 'Pause: Olivia Rodrigo - purple');
           btn.setAttribute('aria-label', 'Pause background music');
           if (icon) icon.textContent = '🔊';
         } else {
           btn.classList.remove('playing');
-          btn.setAttribute('title', 'Play: Yeng Constantino - Sabihin Mo Na');
+          btn.setAttribute('title', 'Play: Olivia Rodrigo - purple');
           btn.setAttribute('aria-label', 'Play background music');
           if (icon) icon.textContent = '🎵';
         }
