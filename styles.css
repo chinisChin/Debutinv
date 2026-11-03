@@ -726,16 +726,21 @@ html.invitation-revealed .invitation-container {
   height: 100%;
   border-radius: 50% / 50%;
   overflow: hidden;
+  clip-path: ellipse(50% 50% at 50% 50%);
+  -webkit-clip-path: ellipse(50% 50% at 50% 50%);
+  isolation: isolate;
   background: #ede6f5;
   box-shadow: inset 0 0 25px rgba(50, 18, 70, 0.4);
 }
 
 .rococo-mirror__bevel {
   position: absolute;
-  inset: 10px;
+  inset: 14px;
   border-radius: 50% / 50%;
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+  box-shadow: inset 0 0 10px rgba(255, 248, 220, 0.45);
   pointer-events: none;
+  z-index: 4;
 }
 
 /* Illustrated Fairytale Portrait Art */
@@ -743,9 +748,37 @@ html.invitation-revealed .invitation-container {
   position: relative;
   width: 100%;
   height: 100%;
+  border-radius: 50% / 50%;
+  overflow: hidden;
+  clip-path: ellipse(50% 50% at 50% 50%);
+  -webkit-clip-path: ellipse(50% 50% at 50% 50%);
   background: 
     radial-gradient(ellipse at 50% 30%, #fff7f9 0%, #f0ddf5 40%, #c4a2df 80%, #8253a6 100%);
-  overflow: hidden;
+}
+
+.portrait-art img,
+.portrait-art__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 46% 35%;
+  display: block;
+  border-radius: 50% / 50%;
+  filter: contrast(1.02) saturate(1.04);
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.portrait-art:hover .portrait-art__img {
+  transform: scale(1.04);
+}
+
+.portrait-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50% / 50%;
+  box-shadow: inset 0 0 25px rgba(45, 15, 65, 0.35);
+  pointer-events: none;
 }
 
 .portrait-art__wisteria-cluster {
@@ -1462,6 +1495,32 @@ html.invitation-revealed .invitation-container {
   background: #ede3f5;
   overflow: hidden;
   border: 1px solid #ebd9f7;
+}
+
+.polaroid-img-frame img,
+.polaroid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.polaroid--left .polaroid-img {
+  object-position: center;
+}
+
+.polaroid--center .polaroid-img {
+  object-position: center 30%;
+}
+
+.polaroid--right .polaroid-img {
+  object-position: 50% 20%;
+}
+
+.polaroid-card:hover .polaroid-img {
+  transform: scale(1.05);
 }
 
 .polaroid-mock-img {
