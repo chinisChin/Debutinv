@@ -1745,7 +1745,175 @@ html.invitation-revealed .invitation-container {
 }
 
 /* ================================================================
-   SECTION 8: RSVP CARD
+   SECTION 8: PREFERRED GIFTS (Wishlist / Gift Guide)
+================================================================ */
+.preferred-gifts-section {
+  text-align: center;
+}
+
+.preferred-gifts-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #ebdcc5;
+  box-shadow: 0 14px 40px rgba(74, 28, 100, 0.12);
+  padding: 2.2rem 1.6rem;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.preferred-gifts-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--wisteria), var(--gold-dark));
+}
+
+.gifts-intro {
+  margin-bottom: 1.8rem;
+}
+
+.gifts-intro__flourish {
+  font-size: 1.2rem;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.gifts-intro__text {
+  font-size: 0.94rem;
+  color: #553a65;
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 440px;
+}
+
+.gifts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.gift-item {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.1rem 1.2rem;
+  background: linear-gradient(135deg, #fdfbfd 0%, #f7effd 100%);
+  border: 1.5px solid rgba(203, 176, 235, 0.35);
+  border-radius: 14px;
+  text-align: left;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.gift-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(91, 42, 120, 0.12);
+  border-color: rgba(184, 143, 58, 0.5);
+}
+
+.gift-item--featured {
+  background: linear-gradient(135deg, #fbf5ff 0%, #efe0fc 100%);
+  border-color: rgba(138, 73, 178, 0.45);
+}
+
+.gift-item__badge {
+  position: absolute;
+  top: -9px;
+  right: 14px;
+  background: linear-gradient(135deg, var(--wisteria), var(--royal-plum));
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(74, 28, 100, 0.25);
+}
+
+.gift-item__icon-wrapper {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #ebd9f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(74, 28, 100, 0.08);
+}
+
+.gift-item__icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.gift-item__content {
+  flex: 1;
+}
+
+.gift-item__title {
+  font-family: var(--font-serif);
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--royal-plum);
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.02em;
+}
+
+.gift-item__desc {
+  font-size: 0.86rem;
+  color: #5d466f;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.gifts-closing-note {
+  padding-top: 1.2rem;
+  border-top: 1px dashed rgba(203, 176, 235, 0.6);
+}
+
+.gifts-closing__quote {
+  font-family: var(--font-calligraphy);
+  font-size: 1.45rem;
+  color: var(--wisteria-dark);
+  line-height: 1.4;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .preferred-gifts-card {
+    padding: 1.8rem 1.1rem;
+  }
+  .gift-item {
+    gap: 0.85rem;
+    padding: 1rem 0.95rem;
+  }
+  .gift-item__icon-wrapper {
+    width: 44px;
+    height: 44px;
+  }
+  .gift-item__icon {
+    font-size: 1.35rem;
+  }
+  .gift-item__title {
+    font-size: 1.12rem;
+  }
+  .gift-item__desc {
+    font-size: 0.82rem;
+  }
+}
+
+/* ================================================================
+   SECTION 9: RSVP CARD
 ================================================================ */
 .rsvp-envelope-card {
   background: #ffffff;
